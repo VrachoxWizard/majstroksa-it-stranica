@@ -66,7 +66,7 @@ export default function Navbar() {
               <span className="hidden sm:inline">{SITE.name}</span>
             </span>
             <span className="hidden text-xs font-semibold leading-tight text-muted lg:block">
-              Lokalna IT podrška u Hrvatskoj
+              Lokalna IT pomoć u Zagrebu
             </span>
           </span>
         </Link>
@@ -87,7 +87,7 @@ export default function Navbar() {
           >
             <Icon name="phone" className="h-4 w-4" />
             <span className="flex flex-col leading-tight">
-              <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted">Brzi kontakt</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted">Telefon</span>
               <span className="text-sm font-bold">{SITE.phone}</span>
             </span>
           </a>
@@ -186,19 +186,19 @@ export default function Navbar() {
               <div className="mt-10 grid gap-3 sm:grid-cols-2">
                 <a
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-bold text-white shadow-[0_16px_34px_rgba(20,52,52,0.18)] transition hover:bg-accent-soft"
-                  href={SITE.phoneHref}
-                  onClick={closeMenu}
-                >
-                  <Icon name="phone" className="h-4 w-4" />
-                  Nazovi odmah
-                </a>
-                <a
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
                   href={createWhatsAppHref()}
                   onClick={closeMenu}
                 >
                   <Icon name="message" className="h-4 w-4" />
-                  WhatsApp
+                  Pošalji WhatsApp poruku
+                </a>
+                <a
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
+                  href={SITE.phoneHref}
+                  onClick={closeMenu}
+                >
+                  <Icon name="phone" className="h-4 w-4" />
+                  Nazovi
                 </a>
               </div>
 
@@ -241,15 +241,15 @@ export default function Navbar() {
 
               <div className="mt-auto grid gap-5 pt-12 sm:grid-cols-[1fr_auto] sm:items-center">
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-extrabold">
-                  <a className="text-white transition hover:text-clay-100" href={SITE.phoneHref} onClick={closeMenu}>
-                    Nazovi
-                  </a>
                   <a
                     className="text-white transition hover:text-clay-100"
                     href={SITE.whatsappHref}
                     onClick={closeMenu}
                   >
                     WhatsApp
+                  </a>
+                  <a className="text-white transition hover:text-clay-100" href={SITE.phoneHref} onClick={closeMenu}>
+                    Nazovi
                   </a>
                 </div>
                 <Link

@@ -40,7 +40,7 @@ export default function Services() {
             description="Ako problem nije na popisu, svejedno ga opišite. Najvažnije je prvo razumjeti situaciju i dogovoriti najpametniji sljedeći korak."
             label="Usluge"
             size="page"
-            title="IT podrška za probleme koji ne smiju čekati."
+            title="IT pomoć za svakodnevne probleme koji smetaju u radu."
           />
           <ContactActions className="mt-7" />
           <nav aria-label="Brzi odabir usluge" className="mt-9 flex gap-5 overflow-x-auto border-y quiet-rule py-4">
@@ -112,7 +112,7 @@ export default function Services() {
                   </div>
                   <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                     <CTAButton href="/contact" icon="arrowRight" size="sm">
-                      Zatraži pomoć
+                      Pošalji upit
                     </CTAButton>
                     {service.priceNote && (
                       <p className="text-sm font-bold text-muted">{service.priceNote}</p>

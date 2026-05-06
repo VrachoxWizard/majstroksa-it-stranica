@@ -18,6 +18,8 @@ export default function Seo({ title, description }: SeoProps) {
 }
 
 export function LocalBusinessJsonLd() {
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : undefined;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -31,8 +33,8 @@ export function LocalBusinessJsonLd() {
       addressCountry: 'HR',
     },
     areaServed: SITE.serviceArea,
-    openingHours: 'Mo-Sa 08:00-20:00',
-    url: 'https://trustedlocaltech.hr',
+    openingHours: 'Po dogovoru',
+    url: siteUrl,
   };
 
   return <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>;

@@ -22,7 +22,7 @@ const initialValues: FormValues = {
   message: '',
 };
 
-const messageTips = ['Koji uređaj koristite', 'Što se događa', 'Kada je počelo'];
+const messageTips = ['Koji uređaj koristite', 'Što se događa', 'Kada je počelo', 'Pošaljite i sliku poruke ako imate'];
 
 function validate(values: FormValues) {
   const errors: FormErrors = {};
@@ -32,7 +32,7 @@ function validate(values: FormValues) {
   }
 
   if (!values.contact.trim()) {
-    errors.contact = 'Unesite telefon, WhatsApp broj ili email.';
+    errors.contact = 'Unesite telefon, WhatsApp broj ili e-mail.';
   }
 
   if (!values.device) {
@@ -93,12 +93,10 @@ export default function Contact() {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-28 pt-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14 lg:px-8 lg:py-16">
           <div>
             <p className="section-label">Kontakt</p>
-            <h1 className="display-page mt-4 max-w-3xl font-display font-semibold text-primary">
-              Opišite problem i pošaljite ga najbržim putem.
-            </h1>
+            <h1 className="display-page mt-4 max-w-3xl font-display font-semibold text-primary">Kontakt bez kompliciranja.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-              Obrazac priprema poruku za WhatsApp ili email. Podaci se ne šalju na server, nego ih vi šaljete kroz
-              odabrani kanal.
+              Pošaljite kratko što ne radi, kada je počelo i koji uređaj koristite. Možete poslati i sliku ekrana ako
+              je lakše.
             </p>
             <ContactActions className="mt-7" />
 
@@ -159,7 +157,7 @@ export default function Contact() {
 
               <div>
                 <label className="form-label" htmlFor="contact">
-                  Telefon ili email
+                  Telefon ili e-mail
                 </label>
                 <input
                   aria-describedby={errors.contact ? 'contact-error' : undefined}
@@ -244,14 +242,14 @@ export default function Contact() {
                   <div>
                     <h2 className="font-display text-2xl font-semibold">Poruka je spremna.</h2>
                     <p className="mt-2 leading-7 text-white/76">
-                      Odaberite kanal i otvorit će se pripremljena poruka. Slanje potvrđujete vi u WhatsAppu ili emailu.
+                      Odaberite kanal i otvorit će se pripremljena poruka. Slanje potvrđujete vi u WhatsAppu ili e-mailu.
                     </p>
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                       <CTAButton className="bg-accent" external href={whatsappHref} icon="message" size="sm">
                         Pošalji WhatsApp
                       </CTAButton>
                       <CTAButton className="border-white/18 bg-white/10 text-white hover:bg-white/16" external href={mailHref} icon="mail" size="sm" variant="secondary">
-                        Pošalji email
+                        Pošalji e-mail
                       </CTAButton>
                     </div>
                   </div>

@@ -18,8 +18,8 @@ export default function Home() {
       <section className="bg-primary py-14 text-white lg:py-18">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-clay-100">Kako ide dogovor</p>
-            <h2 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">Tri mirna koraka prije rada.</h2>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-clay-100">Kako funkcionira</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">Tri jednostavna koraka.</h2>
           </div>
           <div className="grid divide-y divide-white/14 border-y border-white/14 md:grid-cols-3 md:divide-x md:divide-y-0">
             {PROCESS_STEPS.map((step) => (
@@ -35,10 +35,10 @@ export default function Home() {
       <section className="bg-surface py-14 lg:py-18">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8">
           <SectionHeader
-            description="Najlakše je početi kratkim pozivom ili WhatsApp porukom. Ako je problem hitan, telefon je najbrži put."
+            description="Najlakše je krenuti WhatsApp porukom. Pošaljite kratko što ne radi i dobit ćete jasan sljedeći korak."
             label="Pitanja prije poziva"
             size="compact"
-            title="Jasan dogovor je dio usluge."
+            title="Jasan i pošten dogovor je dio usluge."
           />
           <div className="grid border-t quiet-rule">
             {FAQ_ITEMS.map((item) => (

@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <p className="text-base font-bold text-primary">{SITE.name}</p>
             <p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">
-              Lokalna IT podrška za dom i male tvrtke u Zagrebu i okolici, s jasnim dogovorom prije rada.
+              Lokalna IT pomoć za dom, studente, starije korisnike, freelancere i male obrte u Zagrebu.
             </p>
           </div>
 

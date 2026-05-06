@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className="relative lg:self-stretch">
           <div className="media-frame lg:h-full">
             <img
-              alt="Lokalna IT podrška za računala i male tvrtke"
+              alt="Lokalna PC i laptop pomoć u Zagrebu"
               className="aspect-[5/4] object-[45%_50%] lg:h-full"
               fetchPriority="high"
               height="960"
@@ -48,9 +48,9 @@ export default function HeroSection() {
                 <Icon name="shield" className="h-5 w-5" />
               </span>
               <div>
-                <p className="font-bold text-primary">Prvo kratka procjena, zatim dogovor.</p>
+                <p className="font-bold text-primary">Prvo procjena, pa dogovor prije rada.</p>
                 <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Ako niste sigurni što se događa, pošaljite opis problema i dobit ćete smiren sljedeći korak.
+                  Ako se popravak ne isplati ili problem nije za mene, reći ću vam to otvoreno.
                 </p>
               </div>
             </div>

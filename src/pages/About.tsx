@@ -16,13 +16,14 @@ export default function About() {
       <Seo {...SITE.seo.about} />
       <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-24 pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-16">
         <div className="self-center">
-          <p className="section-label">O nama</p>
+          <p className="section-label">O meni</p>
           <h1 className="display-page mt-4 font-display font-semibold text-primary">
             Normalna IT pomoć, bez panike i bez kompliciranja.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-700">
-            {SITE.name} pomaže korisnicima koji žele jasno objašnjenje, miran pristup i dogovor prije bilo kakvog rada.
-            Cilj je da brzo shvatite možemo li pomoći i kako nas najlakše kontaktirati.
+            {SITE.name} je lokalna pomoć za ljude kojima treba jednostavno, jasno i pošteno rješenje za svakodnevne
+            probleme s računalom. Fokus je na normalnoj komunikaciji, realnoj procjeni i objašnjenju bez tehničkog
+            žargona.
           </p>
           <ContactActions className="mt-8" compact />
         </div>
@@ -73,7 +74,7 @@ export default function About() {
 
       <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
         <p className="mb-5 text-sm font-semibold text-muted">
-          Napomena: prikazi ispod su primjeri tona komunikacije dok ne unesete potvrđene stvarne recenzije.
+          Napomena: ispod su tipične situacije i što možete očekivati tijekom dogovora.
         </p>
         <div className="grid gap-5 md:grid-cols-2">
           {TESTIMONIALS.map((testimonial) => (
