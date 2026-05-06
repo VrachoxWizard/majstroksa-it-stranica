@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #143434;
+  --color-background-light: #f8f6f1;
+  --color-accent: #9a5838;
+  --color-accent-soft: #b66b45;
+  --color-surface: #fffdf8;
+  --color-sage-50: #f4f1ea;
+  --color-sage-100: #ebe5d9;
+  --color-sage-200: #ddd4c4;
+  --color-sage-600: #667267;
+  --color-mist-100: #e8ece8;
+  --color-mist-200: #d6ddd8;
+  --color-clay-100: #efe0d4;
+  --color-clay-200: #d7b79f;
+  --color-moss-100: #dfe8df;
+  --color-moss-200: #c2d0c2;
+  --color-text-main: #243232;
+  --color-muted: #7f8b84;
+
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Manrope", sans-serif;
+
+  --shadow-soft: 0 10px 28px rgba(20, 52, 52, 0.055);
+  --shadow-hover: 0 16px 36px rgba(20, 52, 52, 0.09);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background-light font-body text-text-main antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background-light;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-primary font-bold text-white shadow-soft transition duration-200 hover:-translate-y-px hover:bg-accent hover:shadow-hover active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-sage-200 bg-surface font-bold text-primary transition duration-200 hover:-translate-y-px hover:border-primary/50 hover:bg-white active:translate-y-0;
+  }
+
+  .section-label {
+    @apply text-[0.7rem] font-bold uppercase tracking-[0.18em] text-accent;
+  }
+
+  .form-label {
+    @apply mb-2 block text-sm font-bold text-primary;
+  }
+
+  .form-field {
+    @apply w-full rounded-md border border-sage-200 bg-surface px-4 py-3 text-base font-semibold text-text-main transition duration-200 placeholder:text-muted focus:border-primary focus:bg-white sm:text-sm;
+  }
+
+  .form-error {
+    @apply mt-2 text-sm font-bold text-red-600;
+  }
+
+  .quiet-panel {
+    @apply border border-sage-200/90 bg-surface shadow-soft;
+  }
+
+  .quiet-rule {
+    @apply border-sage-200/80;
+  }
+
+  .display-hero {
+    font-size: clamp(2.65rem, 8.2vw, 5.1rem);
+    line-height: 0.99;
+  }
+
+  .display-page {
+    font-size: clamp(2.55rem, 7.5vw, 4.5rem);
+    line-height: 1.02;
+  }
+
+  .display-section {
+    font-size: clamp(2rem, 5.8vw, 2.85rem);
+    line-height: 1.08;
+  }
+
+  .media-frame {
+    @apply overflow-hidden rounded-md border border-sage-200/90 bg-surface shadow-soft;
+  }
+
+  .media-frame img {
+    @apply h-full w-full object-cover;
+    filter: saturate(0.88) contrast(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
