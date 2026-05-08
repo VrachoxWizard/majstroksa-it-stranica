@@ -1,274 +1,148 @@
 # AGENTS
 
-This document describes the autonomous agents available for the Trusted Local Tech project. Agents are specialized tools designed to handle specific workflows, from codebase exploration to design system synthesis and component generation.
+This file defines the agent conventions for the **Trusted Local Tech** project — a production React + TypeScript + Vite website. It tells AI coding agents how this project is structured, what the rules are, and how to operate safely and effectively within it.
+
+---
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Available Agents](#available-agents)
-- [Usage Patterns](#usage-patterns)
-- [Agent Selection Guide](#agent-selection-guide)
-- [Integration & Workflow](#integration--workflow)
-- [Best Practices](#best-practices)
+- [Project Identity](#project-identity)
+- [Technology Stack](#technology-stack)
+- [Source Layout](#source-layout)
+- [Coding Conventions](#coding-conventions)
+- [Agent Directives](#agent-directives)
+- [Allowed Operations](#allowed-operations)
+- [Prohibited Operations](#prohibited-operations)
+- [Commands](#commands)
+- [Content Rules](#content-rules)
 
 ---
 
-## Overview
+## Project Identity
 
-Agents are autonomous or semi-autonomous systems that can perform specialized tasks within the Trusted Local Tech development workflow. They excel at multi-step operations, parallel processing, and domain-specific problem-solving without requiring constant user direction.
-
-### Key Characteristics
-
-- **Autonomous**: Agents operate independently once given clear instructions
-- **Specialized**: Each agent is optimized for specific domains (exploration, design, components, performance)
-- **Stateless**: Individual invocations do not depend on previous invocations
-- **Detailed**: Agents accept comprehensive prompts and return structured results
-- **Safe**: Read-only exploration agents operate without modifying code
+**Name**: Trusted Local Tech  
+**Type**: Production marketing website  
+**Audience**: Local residential tech service customers  
+**Goal**: Convert visitors into leads via clear service presentation, trust signals, and direct contact actions.
 
 ---
 
-## Available Agents
+## Technology Stack
 
-### Explore
-
-**Purpose**: Fast read-only codebase exploration and question-answering
-
-**When to Use**:
-- Understanding project structure and architecture
-- Locating specific code patterns or implementations
-- Quick Q&A about existing codebase
-- Analyzing component relationships
-- Avoiding manual chaining of multiple search operations
-
-**Features**:
-- Parallel file reading and searching
-- Semantic understanding of codebase patterns
-- Detailed Q&A responses with code references
-- No modifications to workspace
-- Throttle control via thoroughness parameter
-
-**Usage Example**:
-```
-/explore
-Quick search for where the HomePage component renders services.
-Thoroughness: quick
-```
-
-**Parameters**:
-- `prompt` (required): Describe what you're looking for
-- `description` (required): Short description of the task
-- `thoroughness` (optional): `quick`, `medium`, or `thorough` — defaults to `quick`
-  - **Quick**: Surface-level search, 1-2 minutes
-  - **Medium**: Balanced depth and speed, 2-5 minutes
-  - **Thorough**: Comprehensive analysis, 5+ minutes
-
-**Output Format**: 
-- Structured findings with file references
-- Code snippets with context
-- Clear navigation paths within the codebase
+| Layer | Tool |
+|-------|------|
+| Framework | React 19 |
+| Language | TypeScript (strict) |
+| Bundler | Vite |
+| Styling | Tailwind CSS v4 |
+| Animation | Framer Motion |
+| Routing | React Router v7 |
+| Linting | ESLint |
 
 ---
 
-## Usage Patterns
-
-### When to Use Agents vs. Direct Exploration
-
-| Task | Recommended | Reason |
-|------|-------------|--------|
-| Find where a component is used | Explore agent | Parallel search across codebase |
-| Understand routing structure | Explore agent (medium) | Requires multi-file analysis |
-| Quick syntax check | Direct editor | Immediate visual feedback |
-| Refactor 1-2 files | Direct editor | Tight feedback loop |
-| Refactor 5+ files | Design work first, then component sync | Requires holistic approach |
-| Design system analysis | Design skill | Specialized semantic synthesis |
-| Component generation | React-components skill | AST-based validation |
-
-### Invocation Syntax
-
-Agents are invoked via chat interface using the `/` command pattern:
+## Source Layout
 
 ```
-/explore [prompt]
+src/
+  app/            # Entry point and router setup — do not add business logic here
+  pages/          # One file per route (Home, About, Services, Contact)
+  widgets/        # Page-section compositions (HeroSection, ServicesGrid, etc.)
+  shared/
+    components/   # Reusable UI primitives — stateless, prop-driven
+    config/       # Static site content — siteData.ts is the single source of truth
+    lib/          # Pure utility functions, no side effects
+    types/        # Shared TypeScript interfaces and types
 ```
 
-**Example**:
-```
-/explore
-Find all uses of the CTAButton component and describe its variants.
-Thoroughness: medium
-```
+**Rule**: Agents must respect these boundaries. Do not place business logic in `app/`, do not hardcode content outside `siteData.ts`, do not add stateful logic to `shared/components/`.
 
 ---
 
-## Agent Selection Guide
+## Coding Conventions
 
-### Decision Tree
-
-**Question 1**: Do you need to understand existing code?
-- **Yes** → Use **Explore** agent
-- **No** → Proceed to Question 2
-
-**Question 2**: Are you modifying or creating?
-- **Modifying** → Use direct editor + targeted searches
-- **Creating** → Use design or component skills
-
-**Question 3**: Is it design-related?
-- **Yes** → Use stitch-design or taste-design skill
-- **No** → Use react-components or related skill
+- **TypeScript**: All new files must be `.tsx` or `.ts`. No `any` types. Prefer explicit return types on exported functions.
+- **Components**: Functional components only. Props must be typed with a named interface.
+- **Styling**: Tailwind utility classes only — no inline styles, no CSS modules, no external CSS files beyond `index.css`.
+- **Exports**: Named exports preferred. Default exports only for page-level components.
+- **Content**: All user-facing strings (copy, labels, service names) must live in `src/shared/config/siteData.ts`.
+- **Imports**: Use relative imports within `src/`. Do not use path aliases unless already configured in `tsconfig.app.json`.
+- **Animation**: Framer Motion is the only approved animation library. Do not introduce CSS keyframe animations or other libraries.
 
 ---
 
-## Integration & Workflow
+## Agent Directives
 
-### Typical Workflow
+These instructions govern how agents must behave in this repository.
 
-1. **Exploration Phase**
-   - Use Explore agent (quick) to understand current structure
-   - Identify gaps or areas needing work
+### Before Making Changes
 
-2. **Planning Phase**
-   - Use stitch-design skill for visual/interaction design
-   - Create or update DESIGN.md file
+1. Read the relevant file(s) before editing — never write blind.
+2. Identify which layer the change belongs to (`pages`, `widgets`, `shared`, etc.) before creating or modifying a file.
+3. If content is being changed, check `siteData.ts` first — it may already define what you need.
+4. If a similar component already exists in `shared/components/`, extend it rather than creating a duplicate.
 
-3. **Implementation Phase**
-   - Use react-components skill for code generation
-   - Direct editor for tweaks and refinement
+### While Making Changes
 
-4. **Validation Phase**
-   - Use Explore agent (medium) for verification
-   - Manual testing in development environment
+1. Match the existing code style precisely — indentation, naming conventions, import order.
+2. Keep changes minimal and scoped. Do not refactor surrounding code that was not part of the request.
+3. Do not add comments, docstrings, or `TODO` markers unless explicitly instructed.
+4. Do not install new dependencies without explicit user approval.
 
-### Parallel Processing
+### After Making Changes
 
-Agents do not run asynchronously; they complete before returning. For independent tasks:
-- Launch multiple agent invocations in separate chat turns
-- Wait for each result before proceeding to dependent work
-
-### Deferring Complex Work
-
-For multi-step, multi-file refactoring:
-1. Use Explore to understand current state
-2. Use skills (design, components) to architect changes
-3. Apply changes systematically
-4. Use Explore to verify results
+1. Verify TypeScript validity — changes must not introduce type errors.
+2. Confirm that any modified component is still usable with its existing props interface.
+3. Do not auto-commit. Stage and commit only when the user instructs it.
 
 ---
 
-## Best Practices
+## Allowed Operations
 
-### 1. Craft Clear Prompts
-
-**Poor**: "Find component stuff"  
-**Good**: "Find all React components in src/shared/components/ and describe their prop interfaces and primary use cases"
-
-**Elements of a good prompt**:
-- Specific file paths or scopes
-- Clear expected output format
-- Context on why you're asking
-- Desired thoroughness level
-
-### 2. Leverage Thoroughness Parameter
-
-- **Quick**: Initial reconnaissance, syntax questions, single-file lookups
-- **Medium**: Understanding relationships, multi-file patterns, architecture questions
-- **Thorough**: Comprehensive refactor planning, security audits, design system analysis
-
-### 3. Reference Results Effectively
-
-When an agent provides file references:
-- Use the provided line numbers to jump directly to code
-- Copy code snippets for immediate reference
-- Follow the file structure for consistent patterns
-
-### 4. Verify Before Implementing
-
-Always review agent findings before taking action:
-- Spot-check critical paths
-- Confirm assumptions with direct inspection
-- Use quick editor preview for visual changes
-
-### 5. Combine Skills and Agents
-
-**Design workflow**:
-```
-1. Explore (medium) → Understand current design patterns
-2. stitch-design skill → Create/enhance DESIGN.md
-3. Explore (quick) → Verify design system coverage
-```
-
-**Component workflow**:
-```
-1. Explore (medium) → Find similar existing components
-2. react-components skill → Generate new components
-3. Explore (quick) → Verify generation and integration
-```
-
-### 6. Document Agent-Generated Changes
-
-When agents or skills generate code:
-- Review the full output before committing
-- Add comments explaining non-obvious patterns
-- Update type definitions if needed
-- Run lint/type checks immediately
-
-### 7. Handle Agent Limitations
-
-**Agents cannot**:
-- Run terminal commands or execute builds
-- Access external APIs or real-time data
-- Modify files directly (use skills for that)
-- Guarantee 100% accuracy (always verify)
-
-**Workarounds**:
-- Use direct terminal for execution
-- Copy agent findings and manually apply changes
-- Cross-reference multiple agent runs for critical decisions
+- Reading any file in the repository
+- Editing files within `src/`
+- Creating new components in `src/shared/components/` or new widgets in `src/widgets/`
+- Adding new pages in `src/pages/` and registering routes in `src/app/`
+- Updating `src/shared/config/siteData.ts` to reflect content changes
+- Running `npm run dev`, `npm run build`, `npm run lint`, and `npm run preview`
+- Staging and committing changes **only when the user requests it**
 
 ---
 
-## Troubleshooting
+## Prohibited Operations
 
-### Agent Not Found
-
-If an agent isn't recognized:
-- Verify agent name spelling and capitalization
-- Check that VS Code Copilot extension is active
-- Ensure proper chat interface context
-
-### Incomplete Results
-
-If results seem incomplete:
-- Increase thoroughness parameter
-- Provide more specific scope in prompt
-- Split complex questions into focused sub-questions
-- Use Explore agent directly instead of expecting inline answers
-
-### Slow Performance
-
-If agent operations are slow:
-- Reduce thoroughness level
-- Narrow scope (specific file paths)
-- Check workspace size (large projects may be slower)
+- `git push` — never push without explicit user instruction
+- `git reset --hard` or any destructive git operation
+- Dropping or truncating any file contents without instruction
+- Installing npm packages without user approval
+- Modifying `vite.config.ts`, `tsconfig*.json`, or `eslint.config.js` unless specifically asked
+- Introducing new global CSS rules outside `src/index.css`
+- Adding `console.log` statements to production code
 
 ---
 
-## Related Documentation
+## Commands
 
-- [README.md](README.md) — Project overview and structure
-- [DESIGN.md](.stitch/DESIGN.md) — Design system specifications
-- [Skills Documentation](c:\Users\user1\.agents\skills) — Detailed skill guides
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Start local dev server at `localhost:5173` |
+| `npm run build` | Type-check and produce production bundle in `dist/` |
+| `npm run lint` | Run ESLint across the entire project |
+| `npm run preview` | Serve the production build locally for verification |
 
 ---
 
-## Version History
+## Content Rules
 
-| Date | Version | Changes |
-|------|---------|---------|
-| May 8, 2026 | 1.0.0 | Initial documentation |
+All customer-facing content is intentional and curated. When an agent modifies copy:
+
+- Preserve the professional, approachable tone — no technical jargon visible to end users.
+- Do not invent service names, prices, or contact details.
+- Do not alter SEO metadata (`src/shared/components/Seo.tsx`) without explicit instruction.
+- Phone numbers, addresses, and business hours must only be updated when the user provides the exact new value.
 
 ---
 
 **Last Updated**: May 8, 2026  
-**Maintained By**: Development Team  
 **Status**: Active
 
