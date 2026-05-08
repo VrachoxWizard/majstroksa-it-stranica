@@ -22,7 +22,7 @@ const initialValues: FormValues = {
   message: '',
 };
 
-const messageTips = ['Koji uređaj koristite', 'Što se događa', 'Kada je počelo', 'Pošaljite i sliku poruke ako imate'];
+const messageTips = ['Što ne radi', 'Koji uređaj koristite', 'Kada je problem počeo', 'Sliku greške ako je imate'];
 
 function validate(values: FormValues) {
   const errors: FormErrors = {};
@@ -59,7 +59,7 @@ export default function Contact() {
     const service = values.device ? getServiceLabel(values.device) : 'Nije odabrano';
 
     return [
-      `Pozdrav, trebam IT pomoć.`,
+      `Pozdrav, trebam pomoć s računalom.`,
       `Ime: ${values.name || '-'}`,
       `Kontakt: ${values.contact || '-'}`,
       `Vrsta problema: ${service}`,
@@ -68,7 +68,7 @@ export default function Contact() {
   }, [values]);
 
   const whatsappHref = createWhatsAppHref(composedMessage);
-  const mailHref = createMailHref('Upit za IT pomoć', composedMessage);
+  const mailHref = createMailHref('Upit za pomoć s računalom', composedMessage);
 
   const updateField = (field: keyof FormValues, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
@@ -90,13 +90,13 @@ export default function Contact() {
     <div className="w-full bg-background-light">
       <Seo {...SITE.seo.contact} />
       <section className="border-b quiet-rule bg-background-light">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-28 pt-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14 lg:px-8 lg:py-16">
-          <div>
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 pb-28 pt-10 sm:pt-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14 lg:px-8 lg:py-16">
+          <div className="min-w-0">
             <p className="section-label">Kontakt</p>
-            <h1 className="display-page mt-4 max-w-3xl font-display font-semibold text-primary">Kontakt bez kompliciranja.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-              Pošaljite kratko što ne radi, kada je počelo i koji uređaj koristite. Možete poslati i sliku ekrana ako
-              je lakše.
+            <h1 className="display-page mt-4 max-w-3xl font-display font-semibold text-primary">Pošaljite poruku i ukratko opišite problem</h1>
+            <p className="mt-5 max-w-[34ch] text-base leading-7 text-slate-700 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8">
+              Najbrže je javiti se preko WhatsAppa. Napišite što ne radi, koji uređaj koristite i kada je problem
+              počeo. Ako imate sliku greške, pošaljite i nju.
             </p>
             <ContactActions className="mt-7" />
 
@@ -115,16 +115,16 @@ export default function Contact() {
             <div className="mt-5 grid divide-y quiet-rule border-y quiet-rule">
               {CONTACT_METHODS.map((method) => (
                 <a
-                  className="flex items-start gap-4 py-4 transition hover:text-accent"
-                  href={method.href}
+                  className="flex min-w-0 items-start gap-4 py-4 transition hover:text-accent"
+                  href={method.icon === 'message' ? createWhatsAppHref() : method.href}
                   key={method.title}
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-sage-100 text-primary">
                     <Icon name={method.icon} className="h-5 w-5" />
                   </span>
-                  <span>
+                  <span className="min-w-0">
                     <span className="block font-bold text-primary">{method.title}</span>
-                    <span className="mt-1 block font-semibold text-slate-700">{method.value}</span>
+                    <span className="mt-1 block font-semibold text-slate-700 [overflow-wrap:anywhere]">{method.value}</span>
                     {method.label && <span className="mt-2 block text-sm font-bold text-accent">{method.label}</span>}
                   </span>
                 </a>
@@ -132,7 +132,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="quiet-panel rounded-md p-5 sm:p-8 lg:sticky lg:top-28 lg:self-start">
+          <div className="quiet-panel min-w-0 rounded-md p-5 sm:p-8 lg:sticky lg:top-28 lg:self-start">
             <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
               <div>
                 <label className="form-label" htmlFor="name">
@@ -157,7 +157,7 @@ export default function Contact() {
 
               <div>
                 <label className="form-label" htmlFor="contact">
-                  Telefon ili e-mail
+                  Telefon, WhatsApp ili e-mail
                 </label>
                 <input
                   aria-describedby={errors.contact ? 'contact-error' : undefined}
@@ -228,7 +228,7 @@ export default function Contact() {
               </div>
 
               <button className="btn-primary mt-1 h-13 w-full px-6 text-base" type="submit">
-                Pripremi poruku
+                Pripremi WhatsApp ili email poruku
                 <Icon name="arrowRight" className="h-5 w-5" />
               </button>
             </form>
@@ -242,11 +242,12 @@ export default function Contact() {
                   <div>
                     <h2 className="font-display text-2xl font-semibold">Poruka je spremna.</h2>
                     <p className="mt-2 leading-7 text-white/76">
-                      Odaberite kanal i otvorit će se pripremljena poruka. Slanje potvrđujete vi u WhatsAppu ili e-mailu.
+                      Ova forma priprema WhatsApp ili email poruku. Ako se email aplikacija ne otvori, možete se javiti
+                      direktno na WhatsApp.
                     </p>
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                       <CTAButton className="bg-accent" external href={whatsappHref} icon="message" size="sm">
-                        Pošalji WhatsApp
+                        Pošalji WhatsApp poruku
                       </CTAButton>
                       <CTAButton className="border-white/18 bg-white/10 text-white hover:bg-white/16" external href={mailHref} icon="mail" size="sm" variant="secondary">
                         Pošalji e-mail

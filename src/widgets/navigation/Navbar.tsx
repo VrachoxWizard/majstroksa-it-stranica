@@ -98,10 +98,10 @@ export default function Navbar() {
           >
             <Icon name="phone" className="h-5 w-5" />
           </a>
-          <CTAButton className="h-10" external href={SITE.phoneHref} icon="phone" size="sm">
+          <CTAButton className="h-10" external href={createWhatsAppHref()} icon="message" size="sm">
             {SITE.primaryCta}
           </CTAButton>
-          <CTAButton className="h-10" external href={createWhatsAppHref()} icon="message" size="sm" variant="secondary">
+          <CTAButton className="h-10" external href={SITE.phoneHref} icon="phone" size="sm" variant="secondary">
             {SITE.secondaryCta}
           </CTAButton>
         </div>
@@ -224,7 +224,7 @@ export default function Navbar() {
                   </a>
                   <a
                     className="text-white/66 transition hover:text-white"
-                    href={SITE.whatsappHref}
+                    href={createWhatsAppHref()}
                     onClick={closeMenu}
                   >
                     WhatsApp
@@ -243,7 +243,7 @@ export default function Navbar() {
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-extrabold">
                   <a
                     className="text-white transition hover:text-clay-100"
-                    href={SITE.whatsappHref}
+                    href={createWhatsAppHref()}
                     onClick={closeMenu}
                   >
                     WhatsApp

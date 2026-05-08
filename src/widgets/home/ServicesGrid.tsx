@@ -16,7 +16,7 @@ export default function ServicesGrid() {
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
         >
           <SectionHeader
-            description="Fokus je na problemima koje ljudi stvarno imaju: sporo računalo, Windows greške, printer koji ne radi, Wi-Fi koji puca i pomoć oko podataka."
+            description="Fokus je na problemima koje ljudi stvarno imaju: sporo računalo, Windows greške, printer koji ne radi, Wi‑Fi koji puca, mail problemi i pomoć oko podataka."
             label="Usluge"
             size="compact"
             title="Praktična pomoć kada tehnika zapne."

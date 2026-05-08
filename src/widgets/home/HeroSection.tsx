@@ -2,23 +2,27 @@ import { Link } from 'react-router-dom';
 import { HERO_DATA, LOCAL_PROOF, SERVICES, SITE } from '../../shared/config/siteData';
 import ContactActions from '../../shared/components/ContactActions';
 import Icon from '../../shared/components/Icon';
+import ImageWithFallback from '../../shared/components/ImageWithFallback';
 
 export default function HeroSection() {
   return (
     <section className="w-full border-b quiet-rule bg-background-light">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 pb-24 pt-12 lg:min-h-[calc(100vh-73px)] lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:px-8 lg:py-16">
-        <div className="max-w-2xl">
-          <p className="mb-5 text-sm font-bold text-accent">{HERO_DATA.trustText}</p>
-          <h1 className="display-hero text-balance font-display font-semibold text-primary">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-5 pb-16 pt-10 sm:gap-10 sm:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:px-8 lg:py-16 xl:gap-16">
+        <div className="min-w-0 max-w-2xl">
+          <p className="mb-4 max-w-full text-sm font-bold leading-6 text-accent sm:mb-5">{HERO_DATA.trustText}</p>
+          <h1 className="display-hero text-wrap font-display font-semibold text-primary sm:text-balance">
             {HERO_DATA.title}
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700">{HERO_DATA.subtitle}</p>
-          <ContactActions className="mt-7" />
+          <p className="mt-5 max-w-[34ch] text-base leading-7 text-slate-700 sm:mt-6 sm:max-w-xl sm:text-lg sm:leading-8">{HERO_DATA.subtitle}</p>
+          <p className="mt-4 max-w-[34ch] text-sm font-semibold leading-6 text-slate-600 sm:max-w-xl">
+            {HERO_DATA.helperText}
+          </p>
+          <ContactActions className="mt-6 sm:mt-7" />
 
-          <div className="mt-9 grid border-y quiet-rule sm:grid-cols-3">
+          <div className="mt-8 grid border-y quiet-rule sm:mt-9 sm:grid-cols-2 lg:grid-cols-4">
             {LOCAL_PROOF.map((item) => (
               <div
-                className="border-b quiet-rule py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:px-4 sm:first:pl-0 sm:last:border-r-0"
+                className="border-b quiet-rule py-4 last:border-b-0 sm:border-r sm:px-4 sm:odd:pl-0 sm:even:border-r-0 lg:border-b-0 lg:odd:pl-4 lg:first:pl-0 lg:even:border-r lg:last:border-r-0"
                 key={item.label}
               >
                 <div className="flex items-center gap-2 text-accent">
@@ -31,18 +35,20 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative lg:self-stretch">
-          <div className="media-frame lg:h-full">
-            <img
+        <div className="relative min-w-0">
+          <div className="media-frame max-h-[24rem] sm:max-h-none lg:min-h-[34rem]">
+            <ImageWithFallback
               alt="Lokalna PC i laptop pomoć u Zagrebu"
-              className="aspect-[5/4] object-[45%_50%] lg:h-full"
+              className="aspect-[4/3] sm:aspect-[5/4] lg:h-full"
+              fallbackLabel="Lokalna IT pomoć za računala, laptop, printer i Wi-Fi."
               fetchPriority="high"
               height="960"
+              imageClassName="object-[45%_54%]"
               src={SITE.heroImage}
               width="1200"
             />
           </div>
-          <div className="mt-4 border-l border-accent bg-surface p-5 shadow-soft lg:absolute lg:-bottom-6 lg:left-8 lg:mt-0 lg:max-w-md">
+          <div className="mt-4 border-l border-accent bg-surface p-4 shadow-soft sm:p-5 lg:absolute lg:-bottom-6 lg:left-8 lg:mt-0 lg:max-w-md">
             <div className="flex items-start gap-4">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-moss-100 text-primary">
                 <Icon name="shield" className="h-5 w-5" />
@@ -58,9 +64,9 @@ export default function HeroSection() {
           <div className="mt-4 grid gap-3 border border-sage-200 bg-background-light/95 p-4 shadow-soft lg:absolute lg:-right-4 lg:top-10 lg:mt-0 lg:max-w-[15rem]">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">Najčešći problemi</p>
             {SERVICES.slice(0, 3).map((service) => (
-              <Link className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent" key={service.id} to={service.href}>
+              <Link className="flex min-w-0 items-center gap-2 text-sm font-semibold text-primary hover:text-accent" key={service.id} to={service.href}>
                 <Icon name={service.icon} className="h-4 w-4 shrink-0" />
-                {service.shortTitle}
+                <span className="min-w-0">{service.shortTitle}</span>
               </Link>
             ))}
           </div>

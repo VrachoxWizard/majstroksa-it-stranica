@@ -24,37 +24,37 @@ export const SITE = {
   phoneHref: 'tel:+385994414638',
   whatsappHref: 'https://wa.me/385994414638',
   whatsappText:
-    'Pozdrav, trebam IT pomoć. Ne radi mi: ',
+    'Pozdrav, trebam pomoć s računalom. Problem je: ',
   email: 'matevukusic123321@gmail.com',
   emailHref: 'mailto:matevukusic123321@gmail.com',
   address: 'Zagreb, Hrvatska',
-  serviceArea: 'Zagreb, Hrvatska',
+  serviceArea: 'Zagreb i okolica',
   hours: 'Po dogovoru',
   primaryCta: 'Pošalji WhatsApp poruku',
-  secondaryCta: 'Nazovi',
+  secondaryCta: 'Nazovi odmah',
   contactCta: 'Pošalji što ne radi',
   heroImage: images.hero,
   aboutImage: images.about,
   seo: {
     home: {
-      title: 'Majstorska IT pomoć | PC i laptop pomoć Zagreb',
+      title: 'PC servis i IT pomoć Zagreb | Majstorska IT pomoć',
       description:
-        'Lokalna PC i laptop pomoć u Zagrebu za spora računala, Windows probleme, printere, Wi-Fi, e-mail, backup i osnovnu IT podršku. Pošaljite WhatsApp upit.',
+        'Lokalna PC i laptop pomoć u Zagrebu za kućne korisnike i male firme. Windows problemi, spora računala, backup, printeri, Wi-Fi, mail i osnovna IT podrška. Javite se preko WhatsAppa.',
     },
     about: {
       title: 'O meni | Majstorska IT pomoć',
       description:
-        'Majstorska IT pomoć je lokalna pomoć u Zagrebu za svakodnevne probleme s računalom, uz pošten dogovor i objašnjenje bez žargona.',
+        'Praktična IT pomoć u Zagrebu za ljude koji žele jednostavno riješiti problem s računalom bez tehničkog kompliciranja.',
     },
     services: {
-      title: 'IT usluge Zagreb | Majstorska IT pomoć',
+      title: 'PC servis Zagreb i IT pomoć | Majstorska IT pomoć',
       description:
-        'Pomoć za sporo računalo, Windows i programe, printer, Wi-Fi, e-mail, backup podataka i podešavanje novog laptopa u Zagrebu.',
+        'Servis računala Zagreb, popravak laptopa Zagreb, Windows pomoć Zagreb, sporo računalo Zagreb, backup podataka Zagreb i IT podrška za male firme Zagreb.',
     },
     contact: {
       title: 'Kontakt | Majstorska IT pomoć',
       description:
-        'Pošaljite kratki opis problema na WhatsApp, nazovite ili pošaljite e-mail. Lokalna IT pomoć u Zagrebu bez kompliciranja.',
+        'Pošaljite kratko što ne radi preko WhatsAppa. Lokalna pomoć s računalom Zagreb za kućne korisnike i male firme.',
     },
   } satisfies Record<string, RouteSeoProps>,
 };
@@ -66,18 +66,21 @@ export const NAV_LINKS = [
 ];
 
 export const HERO_DATA = {
-  title: 'PC i laptop pomoć u Zagrebu, bez kompliciranja',
+  title: 'PC i laptop pomoć u Zagrebu bez nepotrebnog kompliciranja',
   subtitle:
-    'Pomoć za spora računala, Windows probleme, printere, Wi-Fi, e-mail i svakodnevne IT poteškoće. Pošaljite kratko što ne radi i dogovorimo realan sljedeći korak.',
+    'Pomažem s usporenim računalima, Windows problemima, čišćenjem, nadogradnjama, backupom, printerima, Wi-Fi problemima i osnovnom IT podrškom za male lokalne poslove.',
+  helperText:
+    'Pošaljite kratko što ne radi, koji uređaj koristite i kada je problem počeo. Javit ću vam se s prijedlogom sljedećeg koraka.',
   ctaText: SITE.primaryCta,
   secondaryText: SITE.secondaryCta,
-  trustText: 'Lokalna IT pomoć za dom, studente, starije korisnike i male urede u Zagrebu',
+  trustText: 'Za kućne korisnike i male firme u Zagrebu',
 };
 
 export const LOCAL_PROOF: LocalProofProps[] = [
-  { icon: 'shield', label: 'Prvo procjena', value: 'Pošaljite opis problema prije dogovora.' },
-  { icon: 'clock', label: 'Dogovor prije rada', value: 'Cijena i koraci dogovaraju se unaprijed.' },
-  { icon: 'message', label: 'Bez žargona', value: 'Objašnjenje normalnim jezikom, bez kompliciranja.' },
+  { icon: 'shield', label: 'Lokalno', value: 'Zagreb i okolica' },
+  { icon: 'clock', label: 'Dogovor', value: 'Dogovor prije rada' },
+  { icon: 'message', label: 'Jasno', value: 'Jednostavno objašnjenje' },
+  { icon: 'check', label: 'Pošteno', value: 'Bez lažnih obećanja' },
 ];
 
 export const TRUST_BADGES: TrustBadgeProps[] = [
@@ -85,138 +88,185 @@ export const TRUST_BADGES: TrustBadgeProps[] = [
     icon: 'shield',
     label: 'Lokalno',
     value: 'Zagreb i okolica',
-    detail: 'Pomoć za dom, studente, starije korisnike, freelancere i male obrte.',
+    detail: 'Pomoć za kućne korisnike, studente, starije korisnike, freelancere, obrte i male urede.',
   },
   {
     icon: 'clock',
-    label: 'Pošteno',
+    label: 'Dogovor',
     value: 'Dogovor prije rada',
-    detail: 'Ako se popravak ne isplati, to kažem odmah i bez uljepšavanja.',
+    detail: 'Prije rada kažem okvirnu cijenu i sljedeći korak. Nema pritiska ni nepotrebnog kompliciranja.',
   },
   {
     icon: 'award',
-    label: 'Jednostavno',
-    value: 'Bez nepotrebnog kompliciranja',
-    detail: 'Ne morate znati tehničke izraze, dovoljno je opisati što se događa.',
+    label: 'Iskreno',
+    value: 'Bez lažnih obećanja',
+    detail: 'Ako se popravak ne isplati ili problem traži drugi tip servisa, reći ću vam otvoreno.',
   },
 ];
 
 export const SERVICES: ServiceProps[] = [
   {
-    id: 'slow-computer',
-    icon: 'virus',
-    title: 'Sporo računalo ili laptop',
-    shortTitle: 'Sporo računalo',
-    serviceNavLabel: 'Sporo računalo',
-    heroSummary: 'Kad se uređaj dugo pali, šteka ili radi presporo za normalan rad.',
-    ctaHint: 'Računalo se dugo pali ili stalno blokira?',
-    customerProblem: 'Računalo je sporo, ventilator stalno radi ili sve zapinje kod osnovnih zadataka.',
-    expectedOutcome: 'Optimizacija sustava i realna preporuka što ima smisla napraviti dalje.',
+    id: 'diagnostics',
+    icon: 'computer',
+    title: 'Dijagnostika računala i laptopa',
+    shortTitle: 'Dijagnostika',
+    serviceNavLabel: 'Dijagnostika',
+    heroSummary: 'Kada ne znate što točno ne radi, prvo se mirno provjeri stanje uređaja.',
+    ctaHint: 'Računalo se čudno ponaša, javlja greške ili više ne znate odakle krenuti?',
+    customerProblem: 'Uređaj se pali sporo, zamrzava, izbacuje poruke ili radi drugačije nego prije.',
+    expectedOutcome: 'Jasna procjena problema, okvir cijene i prijedlog što ima smisla napraviti dalje.',
     description:
-      'Provjera i čišćenje nepotrebnih procesa, optimizacija pokretanja i jasan savjet oko mogućih nadogradnji.',
-    href: '/services#slow-computer',
-    image: images.virus,
-    details: ['Sporo pokretanje', 'Štekanje u radu', 'Procjena nadogradnje'],
-    priceNote: 'Okvirno, ovisno o problemu',
-  },
-  {
-    id: 'windows-programs',
-    icon: 'speed',
-    title: 'Windows i programi',
-    shortTitle: 'Windows i programi',
-    serviceNavLabel: 'Windows',
-    heroSummary: 'Problemi s Windowsom, instalacijom programa i podešavanjem za normalan rad.',
-    ctaHint: 'Windows javlja greške ili programi ne rade kako treba?',
-    customerProblem: 'Greške nakon ažuriranja, problemi s instalacijom ili program koji se stalno ruši.',
-    expectedOutcome: 'Stabilniji rad sustava i podešeni programi za svakodnevno korištenje.',
-    description:
-      'Pomoć s Windows problemima, instalacijom i podešavanjem programa bez nepotrebnih tehničkih izraza.',
-    href: '/services#windows-programs',
+      'Pregled računala ili laptopa bez napuhavanja problema. Cilj je razumjeti što se događa prije bilo kakvog rada.',
+    href: '/services#diagnostics',
     image: images.hero,
-    details: ['Windows greške', 'Instalacija programa', 'Podešavanje za rad'],
-    priceNote: 'Dogovor prije rada',
+    details: ['Pregled stanja uređaja', 'Objašnjenje problema', 'Prijedlog sljedećeg koraka'],
+    priceNote: 'Brzi pregled — od 20 €',
   },
   {
-    id: 'printer-wifi-email',
+    id: 'speed-maintenance',
+    icon: 'speed',
+    title: 'Ubrzavanje i održavanje računala',
+    shortTitle: 'Ubrzavanje',
+    serviceNavLabel: 'Ubrzavanje',
+    heroSummary: 'Za sporo računalo Zagreb: čišćenje nepotrebnog, provjera pokretanja i savjet oko nadogradnje.',
+    ctaHint: 'Računalo se dugo pali, šteka ili usporava svakodnevni rad?',
+    customerProblem: 'Računalo je sporo, ventilator stalno radi ili se osnovni zadaci pretvaraju u čekanje.',
+    expectedOutcome: 'Uređeniji sustav i iskren savjet je li bolje čistiti, nadograditi ili ne ulagati više.',
+    description:
+      'Praktično održavanje, uklanjanje nepotrebnog opterećenja i procjena isplativosti nadogradnje.',
+    href: '/services#speed-maintenance',
+    image: images.virus,
+    details: ['Sporo pokretanje', 'Čišćenje nepotrebnog', 'Savjet oko nadogradnje'],
+    priceNote: 'Ubrzavanje i održavanje — od 35 €',
+  },
+  {
+    id: 'windows-setup',
     icon: 'tools',
-    title: 'Printer, Wi-Fi i e-mail',
-    shortTitle: 'Printer, Wi-Fi i e-mail',
-    serviceNavLabel: 'Printer i Wi-Fi',
-    heroSummary: 'Kad printer ne radi, Wi-Fi puca ili e-mail stalno pravi probleme.',
-    ctaHint: 'Printer ne ispisuje, Wi-Fi prekida ili mail ne radi?',
-    customerProblem: 'Uređaji su spojeni, ali ne rade stabilno ili vas stalno usporavaju u radu.',
-    expectedOutcome: 'Podešena osnovna oprema i jasne upute kako izbjeći iste probleme ubuduće.',
+    title: 'Windows pomoć i podešavanje',
+    shortTitle: 'Windows pomoć',
+    serviceNavLabel: 'Windows',
+    heroSummary: 'Windows pomoć Zagreb za greške, postavke, osnovne programe i pripremu za normalan rad.',
+    ctaHint: 'Windows javlja greške, programi ne rade ili novi laptop nije podešen kako treba?',
+    customerProblem: 'Nakon ažuriranja nešto ne radi, program se ruši ili su postavke zbunjujuće.',
+    expectedOutcome: 'Podešen sustav i jednostavno objašnjenje što je promijenjeno.',
     description:
-      'Praktična pomoć za kućnu mrežu, printer, e-mail i osnovne probleme koji najčešće smetaju svaki dan.',
-    href: '/services#printer-wifi-email',
-    image: images.network,
-    details: ['Printer podešavanje', 'Wi-Fi problemi', 'E-mail pomoć'],
-    priceNote: 'Daljinski ili po dogovoru',
+      'Pomoć s Windows problemima, osnovnim programima, korisničkim postavkama i pripremom laptopa.',
+    href: '/services#windows-setup',
+    image: images.support,
+    details: ['Windows greške', 'Podešavanje programa', 'Priprema laptopa'],
+    priceNote: 'Osnovna IT pomoć — od 25 €',
   },
   {
-    id: 'backup-security-new-device',
+    id: 'backup-transfer',
     icon: 'data',
-    title: 'Backup, sigurnosna provjera i novi laptop',
-    shortTitle: 'Backup i novi uređaj',
-    serviceNavLabel: 'Backup i prijenos',
-    heroSummary: 'Sigurnosna kopija, prijenos podataka i osnovno podešavanje novog uređaja.',
+    title: 'Backup i prijenos podataka',
+    shortTitle: 'Backup',
+    serviceNavLabel: 'Backup',
+    heroSummary: 'Backup podataka Zagreb za dokumente, slike, prijenos na novi uređaj i osnovnu organizaciju datoteka.',
     ctaHint: 'Kupili ste novi laptop ili želite sačuvati važne podatke?',
-    customerProblem: 'Trebate prebaciti podatke, napraviti backup ili provjeriti sumnjive programe i browser.',
-    expectedOutcome: 'Uređaj spreman za rad uz osnovnu sigurnosnu provjeru i dogovorene sljedeće korake.',
+    customerProblem: 'Treba prebaciti dokumente, slike, mailove ili važne mape, ali niste sigurni što je sigurno napraviti.',
+    expectedOutcome: 'Dogovoren prijenos ili backup podataka, uz realnu procjenu što se može sigurno napraviti.',
     description:
-      'Pomoć kod sigurnosnih kopija i prijenosa podataka, uz poštenu procjenu što je realno i sigurno napraviti.',
-    href: '/services#backup-security-new-device',
+      'Pomoć kod sigurnosnih kopija, prijenosa podataka i organizacije datoteka na novom ili postojećem uređaju.',
+    href: '/services#backup-transfer',
     image: images.about,
-    details: ['Backup podataka', 'Prijenos na novi uređaj', 'Osnovna sigurnosna provjera'],
-    priceNote: 'Cijena ovisi o opsegu posla',
+    details: ['Backup podataka', 'Prijenos na novi uređaj', 'Organizacija datoteka'],
+    priceNote: 'Backup i prijenos podataka — od 30 €',
   },
+  {
+    id: 'printer-wifi-mail',
+    icon: 'message',
+    title: 'Printer, Wi-Fi, mail i uredski problemi',
+    shortTitle: 'Printer i Wi‑Fi',
+    serviceNavLabel: 'Printer, Wi‑Fi i mail',
+    heroSummary: 'Pomoć kad printer ne ispisuje, Wi‑Fi puca, mail ne radi ili uredska oprema usporava posao.',
+    ctaHint: 'Printer ne radi, Wi‑Fi prekida ili mail stalno pravi probleme?',
+    customerProblem: 'Uređaji su spojeni, ali ne rade stabilno ili vas usporavaju u svakodnevnom poslu.',
+    expectedOutcome: 'Podešena osnovna oprema i jednostavne upute što provjeriti ako se problem ponovi.',
+    description:
+      'Praktična pomoć za kućne korisnike, male urede, trgovine, obrte i lokalne poslove.',
+    href: '/services#printer-wifi-mail',
+    image: images.network,
+    details: ['Printer podešavanje', 'Wi‑Fi problemi', 'Mail i osnovni ured'],
+    priceNote: 'Osnovna IT pomoć — od 25 €',
+  },
+  {
+    id: 'small-business-it',
+    icon: 'shield',
+    title: 'IT pomoć za male firme',
+    shortTitle: 'Male firme',
+    serviceNavLabel: 'Male firme',
+    heroSummary: 'IT podrška za male firme Zagreb kada treba netko tko jasno pogleda problem i pomogne bez velikog IT odjela.',
+    ctaHint: 'Računala, printeri, Wi‑Fi ili mail usporavaju rad u malom uredu?',
+    customerProblem: 'Malom poslu često treba brz, razumljiv dogovor oko računala, programa, datoteka i osnovne podrške.',
+    expectedOutcome: 'Pregled problema, dogovor prije rada i iskren savjet kada se popravak ili nadogradnja ne isplati.',
+    description:
+      'Osnovna tehnička podrška za male lokalne poslove, urede, trgovine, obrte i freelancere.',
+    href: '/services#small-business-it',
+    image: images.support,
+    details: ['Računala i programi', 'Backup i datoteke', 'Osnovna uredska podrška'],
+    priceNote: 'Napredniji zahvati — po dogovoru',
+  },
+];
+
+export const PRICING_ITEMS = [
+  { title: 'Brzi pregled', price: 'od 20 €' },
+  { title: 'Osnovna IT pomoć', price: 'od 25 €' },
+  { title: 'Ubrzavanje i održavanje', price: 'od 35 €' },
+  { title: 'Backup i prijenos podataka', price: 'od 30 €' },
+  { title: 'Napredniji zahvati', price: 'po dogovoru' },
 ];
 
 export const PROCESS_STEPS: ProcessStepProps[] = [
   {
     step: '01',
-    title: 'Pošaljete što ne radi',
-    description: 'Napišite koji uređaj koristite, kada je problem počeo i što se događa.',
+    title: 'Pošaljite poruku',
+    description: 'Napišite što ne radi, koji uređaj koristite i kada je problem počeo.',
   },
   {
     step: '02',
-    title: 'Dobijete realnu procjenu',
-    description: 'Kažem što ima smisla provjeriti, može li se pomoći i koji je okvirni trošak.',
+    title: 'Kratko procjenjujemo problem',
+    description: 'Pogledamo opis, po potrebi sliku greške i dogovorimo ima li smisla ići dalje.',
   },
   {
     step: '03',
-    title: 'Dogovorimo pomoć',
-    description: 'Ako ima smisla, dogovorimo sljedeći korak: WhatsApp, poziv, daljinska pomoć ili pregled.',
+    title: 'Dogovor prije rada',
+    description: 'Prije rada kažem okvirnu cijenu i što je realno očekivati.',
+  },
+  {
+    step: '04',
+    title: 'Rješenje ili iskren savjet',
+    description: 'Ako se problem može riješiti, radimo dogovoreno. Ako se ne isplati, reći ću iskreno.',
   },
 ];
 
-export const TESTIMONIALS = [
+export const EXPECTATION_CARDS = [
   {
-    id: '1',
-    name: 'Tipična situacija',
-    quote: 'Računalo se sporo pali, preglednik otvara čudne stranice ili Windows stalno izbacuje poruke.',
+    id: 'message',
+    name: 'Što poslati u poruci',
+    quote: 'Napišite što ne radi, koji uređaj koristite i kada je problem počeo. Ako imate sliku greške, pošaljite i nju.',
   },
   {
-    id: '2',
+    id: 'agreement',
     name: 'Što možete očekivati',
-    quote: 'Prvo kratka procjena, zatim dogovor koraka i cijene. Bez izmišljanja problema i bez pritiska.',
+    quote: 'Prvo kratka procjena, zatim dogovor koraka i okvirne cijene. Bez izmišljanja problema i bez pritiska.',
   },
 ];
 
 export const CONTACT_METHODS: ContactMethodProps[] = [
   {
+    icon: 'message',
+    title: 'WhatsApp',
+    value: 'Najbrži način za prvi upit',
+    href: SITE.whatsappHref,
+    label: 'Pošalji kratko što ne radi',
+  },
+  {
     icon: 'phone',
     title: 'Telefon',
     value: SITE.phone,
     href: SITE.phoneHref,
-    label: 'Za kratak dogovor',
-  },
-  {
-    icon: 'message',
-    title: 'WhatsApp',
-    value: 'Najbrži način za upit',
-    href: SITE.whatsappHref,
-    label: 'Javi se na WhatsApp',
+    label: 'Za poziv nakon prvog dogovora',
   },
   {
     icon: 'mail',
@@ -246,28 +296,43 @@ export const CONTACT_ACTIONS: ContactActionProps[] = [
 
 export const FAQ_ITEMS: FaqItemProps[] = [
   {
-    question: 'Što trebam poslati u prvoj poruci?',
+    question: 'Moram li znati točno u čemu je problem?',
     answer:
-      'Dovoljno je napisati koji uređaj koristite, što se događa, kada je problem počeo i imate li sliku poruke ili greške. Ne morate znati tehničke izraze.',
+      'Ne. Dovoljno je opisati što se događa, koji uređaj koristite i kada je problem počeo. Tehničke izraze ne morate znati.',
   },
   {
-    question: 'Hoću li znati cijenu prije rada?',
+    question: 'Radite li s malim firmama?',
     answer:
-      'Da. Prvo se dogovaraju koraci i okvirna cijena. Ako se popravak ne isplati, to se kaže odmah.',
+      'Da. Pomažem malim uredima, obrtima, trgovinama, freelancerima i drugim lokalnim poslovima u Zagrebu s osnovnim IT problemima.',
   },
   {
-    question: 'Može li se problem riješiti na daljinu?',
+    question: 'Koliko košta popravak?',
     answer:
-      'Neki problemi mogu se riješiti na daljinu, ako je to sigurno i praktično. Za opremu, mrežu, printere ili veće probleme dogovara se drugi način pomoći.',
+      'Ovisi o problemu. Brzi pregled je od 20 €, osnovna IT pomoć od 25 €, ubrzavanje i održavanje od 35 €, a backup i prijenos podataka od 30 €. Konačna cijena se dogovara prije rada.',
   },
   {
-    question: 'Pomažete li starijim osobama?',
+    question: 'Mogu li poslati sliku problema?',
     answer:
-      'Da. Objašnjenje je jednostavno i bez žargona. Cilj je da osoba razumije što se radi i kako kasnije koristiti uređaj.',
+      'Da. Slika greške, ekrana ili uređaja često pomaže da se brže shvati o čemu se radi.',
   },
   {
-    question: 'Radite li napredne hardverske popravke?',
+    question: 'Radite li hitne dolaske?',
     answer:
-      'Ne obećavam napredne hardverske popravke poput lemljenja, matičnih ploča ili profesionalnog spašavanja podataka. Ako problem traži specijalizirani servis, reći ću vam otvoreno.',
+      'Moguće je po dogovoru, ovisno o lokaciji, rasporedu i vrsti problema. Najbrže je prvo poslati WhatsApp poruku.',
+  },
+  {
+    question: 'Što ako se problem ne može riješiti?',
+    answer:
+      'Ako se problem ne može riješiti ili se popravak ne isplati, reći ću vam iskreno i objasniti koje su razumne opcije.',
+  },
+  {
+    question: 'Pomažete li kod kupnje ili nadogradnje računala?',
+    answer:
+      'Da. Mogu pomoći oko procjene ima li smisla nadogradnja, što kupiti i kako izbjeći nepotreban trošak.',
+  },
+  {
+    question: 'Je li WhatsApp najbolji način za kontakt?',
+    answer:
+      'Da, za prvi kontakt je najpraktičniji. Možete kratko napisati problem i poslati sliku greške, pa se dalje dogovorimo za poziv ili sljedeći korak.',
   },
 ];

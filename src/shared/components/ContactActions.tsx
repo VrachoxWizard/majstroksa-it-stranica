@@ -11,10 +11,11 @@ type ContactActionsProps = {
 
 export default function ContactActions({ className = '', compact = false, showHours = true }: ContactActionsProps) {
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center ${className}`}>
+    <div className={`flex max-w-[calc(100vw-2.5rem)] min-w-0 flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center ${className}`}>
       {CONTACT_ACTIONS.map((action) => (
         <CTAButton
           ariaLabel={`${action.label}: ${action.value}`}
+          className="w-full sm:w-auto"
           external
           href={action.icon === 'message' ? createWhatsAppHref() : action.href}
           icon={action.icon}
@@ -26,7 +27,7 @@ export default function ContactActions({ className = '', compact = false, showHo
         </CTAButton>
       ))}
       {!compact && showHours && (
-        <div className="flex min-h-10 items-center gap-2 border-l border-sage-200 pl-3 text-sm font-bold text-muted">
+        <div className="flex min-h-10 w-full items-center gap-2 border-l border-sage-200 pl-3 text-sm font-bold text-muted sm:w-auto">
           <Icon name="clock" className="h-4 w-4 text-accent" />
           <span className="whitespace-nowrap">{SITE.hours}</span>
         </div>

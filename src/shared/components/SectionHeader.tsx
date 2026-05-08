@@ -22,10 +22,10 @@ export default function SectionHeader({
   };
 
   return (
-    <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl ${className}`}>
+    <div className={`${align === 'center' ? 'mx-auto text-center' : ''} min-w-0 max-w-3xl ${className}`}>
       {label && <p className="section-label">{label}</p>}
       <h2 className={`mt-3 font-semibold leading-[1.08] text-primary ${titleClass[size]}`}>{title}</h2>
-      {description && <p className="mt-4 text-base leading-8 text-slate-700 sm:text-lg">{description}</p>}
+      {description && <p className="mt-4 max-w-[34ch] text-base leading-7 text-slate-700 sm:max-w-none sm:text-lg sm:leading-8">{description}</p>}
     </div>
   );
 }

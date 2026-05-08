@@ -33,7 +33,6 @@ export function LocalBusinessJsonLd() {
       addressCountry: 'HR',
     },
     areaServed: SITE.serviceArea,
-    openingHours: 'Po dogovoru',
     url: siteUrl,
   };
 

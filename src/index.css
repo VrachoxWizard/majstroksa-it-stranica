@@ -34,6 +34,7 @@
   body {
     @apply bg-background-light font-body text-text-main antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   h1,
@@ -43,6 +44,13 @@
   h5,
   h6 {
     @apply font-display;
+    overflow-wrap: anywhere;
+  }
+
+  p,
+  li,
+  span {
+    overflow-wrap: break-word;
   }
 
   a,
@@ -88,22 +96,28 @@
   }
 
   .display-hero {
-    font-size: clamp(2.65rem, 8.2vw, 5.1rem);
-    line-height: 0.99;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: clamp(2.35rem, 10.6vw, 4.85rem);
+    line-height: 1.01;
   }
 
   .display-page {
-    font-size: clamp(2.55rem, 7.5vw, 4.5rem);
-    line-height: 1.02;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: clamp(2.2rem, 9.6vw, 4.2rem);
+    line-height: 1.04;
   }
 
   .display-section {
-    font-size: clamp(2rem, 5.8vw, 2.85rem);
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: clamp(1.72rem, 7.4vw, 2.85rem);
     line-height: 1.08;
   }
 
   .media-frame {
-    @apply overflow-hidden rounded-md border border-sage-200/90 bg-surface shadow-soft;
+    @apply overflow-hidden rounded-md border border-sage-200/90 bg-sage-50 shadow-soft;
   }
 
   .media-frame img {

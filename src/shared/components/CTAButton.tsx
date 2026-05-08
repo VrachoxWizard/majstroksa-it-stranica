@@ -37,11 +37,11 @@ export default function CTAButton({
   external = false,
   ariaLabel,
 }: CTAButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-md font-bold leading-none transition ${variantClass[variant]} ${sizeClass[size]} ${className}`;
+  const classes = `inline-flex max-w-full items-center justify-center gap-2 rounded-md font-bold leading-tight transition ${variantClass[variant]} ${sizeClass[size]} ${className}`;
   const content = (
     <>
       {icon && <Icon name={icon} className="h-4.5 w-4.5" />}
-      <span>{children}</span>
+      <span className="min-w-0 text-center">{children}</span>
     </>
   );
 

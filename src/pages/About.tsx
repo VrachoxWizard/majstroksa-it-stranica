@@ -1,37 +1,40 @@
 import ContactActions from '../shared/components/ContactActions';
 import Icon from '../shared/components/Icon';
+import ImageWithFallback from '../shared/components/ImageWithFallback';
 import SectionHeader from '../shared/components/SectionHeader';
 import Seo from '../shared/components/Seo';
-import { PROCESS_STEPS, SITE, TESTIMONIALS } from '../shared/config/siteData';
+import { EXPECTATION_CARDS, PROCESS_STEPS, SITE } from '../shared/config/siteData';
 
 const principles = [
-  ['Bez žargona', 'Objasnimo problem običnim jezikom, tako da znate što se događa s uređajem.'],
+  ['Bez žargona', 'Objašnjavam problem običnim jezikom, tako da znate što se događa s uređajem.'],
   ['Jasan dogovor', 'Prije rada dogovaramo korake, očekivanja i okvir troška.'],
-  ['Lokalni fokus', 'Primarno radimo s korisnicima u Zagrebu i okolici, uz daljinsku pomoć kada ima smisla.'],
+  ['Lokalni fokus', 'Pomoć je namijenjena kućnim korisnicima i malim firmama u Zagrebu i okolici.'],
 ];
 
 export default function About() {
   return (
     <div className="w-full bg-background-light">
       <Seo {...SITE.seo.about} />
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-24 pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-16">
-        <div className="self-center">
+      <section className="mx-auto grid w-full max-w-7xl gap-10 px-5 pb-20 pt-10 sm:pb-24 sm:pt-12 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-16">
+        <div className="min-w-0 self-center">
           <p className="section-label">O meni</p>
           <h1 className="display-page mt-4 font-display font-semibold text-primary">
-            Normalna IT pomoć, bez panike i bez kompliciranja.
+            Praktična IT pomoć, bez panike i bez kompliciranja.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-700">
-            {SITE.name} je lokalna pomoć za ljude kojima treba jednostavno, jasno i pošteno rješenje za svakodnevne
-            probleme s računalom. Fokus je na normalnoj komunikaciji, realnoj procjeni i objašnjenju bez tehničkog
-            žargona.
+          <p className="mt-5 max-w-[34ch] text-base leading-7 text-slate-700 sm:mt-6 sm:max-w-none sm:text-lg sm:leading-8">
+            Bavim se praktičnom IT podrškom, webom i računalima, s fokusom na pomoć ljudima koji žele jednostavno
+            riješiti problem bez tehničkog kompliciranja. Najviše radim s Windows računalima, laptopima, osnovnim
+            uredskim problemima, podešavanjima, održavanjem i savjetovanjem.
           </p>
           <ContactActions className="mt-8" compact />
         </div>
         <div className="media-frame">
-          <img
+          <ImageWithFallback
             alt="Radni prostor za lokalnu IT podršku"
-            className="aspect-[4/3] object-[52%_50%]"
+            className="aspect-[4/3]"
+            fallbackLabel="Jasna lokalna IT pomoć, bez žargona i kompliciranja."
             height="900"
+            imageClassName="object-[52%_50%]"
             loading="lazy"
             src={SITE.aboutImage}
             width="1200"
@@ -57,7 +60,7 @@ export default function About() {
 
       <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-18">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
-          <SectionHeader label="Proces" size="compact" title="Kako izgleda suradnja" />
+          <SectionHeader label="Proces" size="compact" title="Kako izgleda dogovor" />
           <div className="grid border-t quiet-rule">
             {PROCESS_STEPS.map((step) => (
               <div className="grid gap-4 border-b quiet-rule py-5 sm:grid-cols-[4rem_1fr]" key={step.step}>
@@ -74,14 +77,14 @@ export default function About() {
 
       <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
         <p className="mb-5 text-sm font-semibold text-muted">
-          Napomena: ispod su tipične situacije i što možete očekivati tijekom dogovora.
+          Ovo nisu recenzije, nego kratke smjernice za prvi kontakt i dogovor.
         </p>
         <div className="grid gap-5 md:grid-cols-2">
-          {TESTIMONIALS.map((testimonial) => (
-            <figure className="border-l border-accent bg-surface px-6 py-5 shadow-soft" key={testimonial.id}>
+          {EXPECTATION_CARDS.map((card) => (
+            <figure className="border-l border-accent bg-surface px-6 py-5 shadow-soft" key={card.id}>
               <Icon name="check" className="mb-4 h-5 w-5 text-accent" />
-              <blockquote className="text-lg leading-8 text-slate-700">"{testimonial.quote}"</blockquote>
-              <figcaption className="mt-5 font-bold text-primary">{testimonial.name}</figcaption>
+              <blockquote className="text-lg leading-8 text-slate-700">{card.quote}</blockquote>
+              <figcaption className="mt-5 font-bold text-primary">{card.name}</figcaption>
             </figure>
           ))}
         </div>

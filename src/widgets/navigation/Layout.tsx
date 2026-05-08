@@ -6,7 +6,7 @@ import { LocalBusinessJsonLd } from '../../shared/components/Seo';
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-background-light pb-[76px] antialiased lg:pb-0">
+    <div className="flex min-h-screen flex-col overflow-x-hidden bg-background-light pb-[calc(88px+env(safe-area-inset-bottom))] antialiased lg:pb-0">
       <LocalBusinessJsonLd />
       <Navbar />
       <main className="flex-grow">

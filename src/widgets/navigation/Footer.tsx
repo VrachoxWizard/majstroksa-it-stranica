@@ -7,10 +7,10 @@ export default function Footer() {
     <footer className="mt-auto border-t quiet-rule bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-8 lg:px-8">
         <div className="grid gap-7 md:grid-cols-[1.1fr_auto_auto] md:items-start">
-          <div>
+          <div className="min-w-0">
             <p className="text-base font-bold text-primary">{SITE.name}</p>
             <p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">
-              Lokalna IT pomoć za dom, studente, starije korisnike, freelancere i male obrte u Zagrebu.
+              Lokalna PC i IT pomoć za kućne korisnike, freelancere, obrte i male firme u Zagrebu.
             </p>
           </div>
 
@@ -22,14 +22,14 @@ export default function Footer() {
             ))}
           </nav>
 
-          <div className="grid gap-1 text-sm font-semibold text-slate-600 md:text-right">
+          <div className="grid min-w-0 gap-1 text-sm font-semibold text-slate-600 md:text-right">
             <a className="text-primary transition-colors hover:text-accent" href={SITE.phoneHref}>
               {SITE.phone}
             </a>
             <a className="transition-colors hover:text-primary" href={createWhatsAppHref()}>
               WhatsApp
             </a>
-            <a className="transition-colors hover:text-primary" href={SITE.emailHref}>
+            <a className="transition-colors [overflow-wrap:anywhere] hover:text-primary" href={SITE.emailHref}>
               {SITE.email}
             </a>
           </div>
